@@ -1,0 +1,41 @@
+
+<div class="container">
+   
+    <div class="card" style="height:75vh">
+      
+        <div class="card-body products">
+            <div class="row">
+                <div class="col-9">
+                    <h3 class="card-title">Products</h3>
+                </div>
+                <div class="col-3">
+                    <a class="btn btn-primary" routerLink="/cart">{{CartService.cartItems.length}} items in Cart</a>
+                    &nbsp;&nbsp;<a href="#" class="btn btn-primary" (click)="clearCart()">Clear</a>
+                </div>
+                
+            </div>
+          <div class="row" *ngIf="CartService.products.length" style="padding-top:3%">
+              <div class="col-3" *ngFor="let p of CartService.products">
+                <h5>{{p.name}}</h5>
+                <p>{{p.desc}}</p>
+                <p>{{p.price | currency:'EUR'}}</p>
+                <img [src]="p.url" height="200" width="150"  />
+                <br />
+                <br />
+                <a href="#" class="btn btn-primary" (click)="addToCart(p)">Add to Cart</a>
+              
+              </div>
+             
+          </div>
+          <br />
+          <div class="row" *ngIf="alert">
+              <div class="col-4">
+                <div class="alert alert-primary" role="alert">
+                    {{results}}
+                  </div>
+              </div>
+          </div>
+        
+        </div>
+      </div>
+</div>
