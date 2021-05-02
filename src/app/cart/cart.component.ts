@@ -44,8 +44,8 @@ export class CartComponent implements OnInit {
     this.totalPrice = this.totalPrice - (item.price * (item.quantity - 1)); //this logic will calculate the discounted price again after a procuct has been removed to display the total
     else  this.totalPrice = this.totalPrice - (item.price * item.quantity);
   //  this.finalItems[index].quantity = 0;
-  //  while(this.CartService.cartItems.indexOf(item.id) != -1)
-  //    this.CartService.cartItems.splice(this.CartService.cartItems.indexOf(item.id) , 1);
+   while(this.CartService.cartItems.indexOf(item.id) != -1)
+     this.CartService.cartItems.splice(this.CartService.cartItems.indexOf(item.id) , 1);
   }
 
 }
